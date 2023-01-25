@@ -1,7 +1,32 @@
-''' A module to indicate card values allowing for formatted display. '''
+''' A module to indicate card values allowing for formatted display.
 
-# Author: Nick Fan
-# Date: 1/24/2023
+Written by: Nick Fan
+Date: 1/25/2023
+
+Classes:
+    Card:
+        card_value_translator:
+            Generates the value of the given integer as a card label representation.
+        card_suite_translator:
+            Generates the value of the given integer as a card label representation.
+
+Functions:
+	same_suite - Checks whether two or more cards are of the same suite.
+    display_cards - Returns display of n number of cards as string.
+
+Usage: in your program, import the my_cards module. Then create card objects or call a function.
+
+Example Usage:
+
+	from my_cards import Card
+    from my_cards import display_cards
+
+    card_value = 13
+    card_suite = 2
+    new_card = Card(13, 2)
+
+	print(display_cards(new_card))
+'''
 
 # Card Class --------------------------------------------------------------|
 class Card():
@@ -84,18 +109,13 @@ class Card():
         return self.true_value != other.true_value
 
     def __str__(self):
-        '''
-        Returns card features as a string, intended for debugging.
-            Returns:
-                Value and Suite of Card Object
-        '''
         return f"Value: {self.value}, Suite: {self.suite}"
 
 
 # Related Functions -------------------------------------------------------|
 def same_suite(card: Card, *cards: Card) -> bool:
     '''
-    Checks whether two or more cards are of the same suite
+    Checks whether two or more cards are of the same suite.
         Args:
             card: Any card object
             cards: Any other card objects
@@ -111,7 +131,7 @@ def same_suite(card: Card, *cards: Card) -> bool:
 
 def display_cards(*cards: Card, card_labels=None, format=True) -> str:
     '''
-    Returns display of n number of cards.
+    Returns display of n number of cards as string.
         Args:
             cards: Any number of card objects.
             labels: Any iterable of card objects or labels.
