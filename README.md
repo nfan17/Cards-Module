@@ -9,3 +9,7 @@ Includes card class and helpful functions for creating and displaying card objec
 - To access the module, you can use ```git clone https://github.com/nfan17/Cards-Module.git```
 - Make sure the file ```my_cards.py``` is in your current directory where you desire to use it.
 - Use ```from my_cards import *``` to import the class and related functions to your program.
+
+## Additional notes
+- If you find that the displayed cards are segmented, your terminal may not be large enough to show all of the cards in an appropriate format. 
+  - You can try displaying cards on multiple lines if this is the case.
