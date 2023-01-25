@@ -42,13 +42,15 @@ class Card():
                 suite: suite of the card, between 1 to 4, inclusive.
             Returns:
                 None
+            Raises:
+                ValueError if card value is < 1 or > 13 and if suite < 1 or > 4.
             Suites are as follows: 1 - Clubs, 2 - Diamonds,
             3 - Hearts, 4 - Spades
         '''
         if value < 1 or value > 13:
-            raise IndexError("Card value must be between 1 and 13.")
+            raise ValueError("Card value must be between 1 and 13.")
         if suite < 1 or suite > 4:
-            raise IndexError("Suite must be between 1 and 4.")
+            raise ValueError("Suite must be between 1 and 4.")
         # Indicates numerical representations
         self.true_value = value
         self.true_suite = suite
@@ -64,9 +66,11 @@ class Card():
                 Any integer between 1 and 13, inclusive.
             Returns:
                 The value of the integer as a card label representation.
+            Raises:
+                ValueError if card value is < 1 or > 13.
         '''
         if value > 13 or value < 1:
-            raise IndexError("Out of bounds, must be in range 1-13.")
+            raise ValueError("Card value must be in range 1-13.")
         if value <= 10 and value != 1:
             return value
         if value == 1:
@@ -85,6 +89,8 @@ class Card():
                 Any integer between 1 and 13, inclusive.
             Returns:
                 The value of the integer as a card label representation.
+            Raises:
+                ValueError if the suite value is < 1 or > 4.
         '''
         if suite > 4 or suite < 1:
             raise IndexError("Out of bounds, must be in range 1-4.")
@@ -139,6 +145,9 @@ def display_cards(*cards: Card, card_labels=None, format=True) -> str:
             card objects (True) or not (False).
         Returns:
             String formatted card display for given cards.
+        Raises:
+            TypeError if too many argument types are passed.
+            ValueError if a given label is too large to fit on the card.
     '''
     top_bot = ""
     borders = ""
@@ -164,7 +173,7 @@ def display_cards(*cards: Card, card_labels=None, format=True) -> str:
     else:
         for val in card_labels[:-1]:
             if len(str(val)) > 5:
-                raise RuntimeError(f"Label \"{val}\" is too large to fit on card.")
+                raise ValueError(f"Label \"{val}\" is too large to fit on card.")
             top_bot += "+-----+   "
             borders += "|     |   "
             labels += f"|{val:^5}|   "
