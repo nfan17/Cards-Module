@@ -78,10 +78,10 @@ class Card():
         return self.true_value > other.true_value
 
     def __eq__(self, other) -> bool:
-        return self.true_value == other.true_value and self.true_suite == other.true_suite
+        return self.true_value == other.true_value
 
     def __ne__(self, other) -> bool:
-        return self.true_value != other.true_value and self.true_suite != other.true_suite
+        return self.true_value != other.true_value
 
     def __str__(self):
         '''
